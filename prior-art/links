@@ -1,0 +1,31 @@
+#!/bin/bash
+
+git clone https://github.com/atweiden/fzf-extras
+git clone https://github.com/DanielFGray/fzf-scripts
+git clone https://github.com/3hhh/fzfuncs
+git clone https://github.com/msprev/fzf-bibtex
+git clone https://github.com/seifferth/cite
+git clone https://github.com/kazhala/dotbare
+git clone https://github.com/ms-jpq/sad
+git clone https://github.com/SleepyBag/fuzzy-fs
+git clone https://github.com/SleepyBag/zle-fzf
+git clone https://github.com/rayiik/Fzf-bash-ide-resource
+git clone https://github.com/Rasukarusan/fzf-bluetooth-connect
+git clone https://github.com/bigH/interactively
+git clone https://github.com/bigH/auto-sized-fzf
+git clone https://github.com/krakozaure/fzg
+git clone https://github.com/urbainvaes/fzf-marks
+git clone https://github.com/wfxr/formarks
+git clone https://github.com/pabloariasal/zfm
+git clone https://github.com/avindra/dirp
+git clone https://github.com/rockandska/fzf-obc
+git clone https://github.com/lincheney/fzf-tab-completion
+git clone https://github.com/Aloxaf/fzf-tab
+git clone https://github.com/chitoku-k/fzf-zsh-completions
+git clone https://github.com/leo-arch/clifm
+git clone https://github.com/bigH/git-fuzzy
+git clone https://github.com/wfxr/forgit
+git clone https://github.com/EfforiaKnight/fizzygit
+git clone https://github.com/laggardkernel/git-ignore
+git clone https://github.com/Bhupesh-V/ugit
+git clone https://github.com/gennaro-tedesco/gh-f
