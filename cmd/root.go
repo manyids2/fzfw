@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -10,6 +11,7 @@ import (
 var (
 	Verbose bool
 	Debug   bool
+	Version bool
 )
 
 var (
@@ -22,6 +24,12 @@ var rootCmd = &cobra.Command{
 	Use:   "fzfw",
 	Short: "Create fzf applications",
 	Long:  `Generate fzf applications using tui.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		print_version := viper.GetBool("version")
+		if print_version {
+			fmt.Printf("fzfw\n%s %s\n", version, revision)
+		}
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -34,8 +42,8 @@ func Execute() {
 }
 
 func init() {
-	viper.Set("version", version)   // set version
-	viper.Set("revision", revision) // set revision
+	viper.Set("_version", version)   // set version
+	viper.Set("_revision", revision) // set revision
 
 	viper.SetConfigName("config")                // name of config file (without extension)
 	viper.SetConfigType("yaml")                  // REQUIRED if the config file does not have the extension in the name
@@ -43,9 +51,12 @@ func init() {
 	viper.AddConfigPath("$XDG_CONFIG_HOME/fzfw") // call multiple times to add many search paths
 	viper.AddConfigPath(".")                     // optionally look for config in the working directory
 
-	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Display more verbose output in console output. (default: false)")
+	rootCmd.PersistentFlags().BoolVar(&Version, "version", false, "Print version and quit. (default: false)")
+	viper.BindPFlag("version", rootCmd.PersistentFlags().Lookup("version"))
+
+	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Verbose output. (default: false)")
 	viper.BindPFlag("verbose", rootCmd.PersistentFlags().Lookup("verbose"))
 
-	rootCmd.PersistentFlags().BoolVarP(&Debug, "debug", "d", false, "Display debugging output in the console. (default: false)")
+	rootCmd.PersistentFlags().BoolVarP(&Debug, "debug", "d", false, "Debug output. (default: false)")
 	viper.BindPFlag("debug", rootCmd.PersistentFlags().Lookup("debug"))
 }

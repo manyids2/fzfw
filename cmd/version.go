@@ -10,11 +10,11 @@ import (
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "version basic fzf script",
-	Long:  `version basic fzf script.`,
+	Short: "Version of fzfw",
+	Long:  `Version of fzfw.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		version := viper.Get("version")
-		revision := viper.Get("revision")
+		version := viper.Get("_version")
+		revision := viper.Get("_revision")
 		fmt.Printf("fzfw\n%s %s\n", version, revision)
 	},
 }
