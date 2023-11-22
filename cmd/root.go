@@ -12,6 +12,11 @@ var (
 	Debug   bool
 )
 
+var (
+	version  string = "0.1"
+	revision string = "devel"
+)
+
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "fzfw",
@@ -29,6 +34,9 @@ func Execute() {
 }
 
 func init() {
+	viper.Set("version", version)   // set version
+	viper.Set("revision", revision) // set revision
+
 	viper.SetConfigName("config")                // name of config file (without extension)
 	viper.SetConfigType("yaml")                  // REQUIRED if the config file does not have the extension in the name
 	viper.AddConfigPath("$HOME/.config/fzfw")    // call multiple times to add many search paths
